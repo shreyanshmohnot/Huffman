@@ -31,7 +31,8 @@ int main(int argc, const char * argv[]) {
 	}
 	myOutput.close();
 
-	/******************************* Addition by TEAM 5 *************************************/
+	/*****Addition by TEAM 5 ****
+	Mr. Thomas and Mr. Mohnot ***/
 
 	// Linkedlist data structure for the frequency list
 	list<Node*> freq_list;
