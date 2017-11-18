@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
 	myfile.close();
 
 	int count[128] = { 0 };
-	for (int i = 0; i<char_count; i++) {
+	for (int i = 0; i < char_count; i++) {
 		count[ch[i]]++;
 	}
 
@@ -91,6 +91,7 @@ int main(int argc, const char * argv[]) {
 	
 	// function to pop from the linkedlist and them display from the level inorder traversal
 	LevelOrder(root, myOutput);
+	
 	myOutput.close();
 	// output
 	return 0;

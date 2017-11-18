@@ -27,6 +27,7 @@ using namespace std;
 struct Node {
 	string ch; // store character
 	int n; // character count
+	int ascii;
 	string huffman = ""; // huffman code
 	Node *left; // pointer to left subtree
 	Node *right; // pointer to right subtree
@@ -36,6 +37,13 @@ struct Node {
 struct comp_freq {
 	bool operator()(Node* const a, Node* const b) {
 		return a->n < b->n;
+	}
+};
+
+// strucutre to compare the frequency inside the list.
+struct comp_ascii {
+	bool operator()(Node* const a, Node* const b) {
+		return a->ascii < b->ascii;
 	}
 };
 

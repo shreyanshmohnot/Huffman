@@ -6,6 +6,10 @@ Returns address value of a new node */
 struct Node* newNode(string ch, int n) {
 	struct Node* temp = new Node;
 	temp->ch = ch;
+	if (ch == "LF")
+		temp->ascii = static_cast<int>(10); 
+	else
+		temp->ascii = static_cast<int>((char)*(ch.c_str()));
 	temp->n = n;
 	temp->left = temp->right = NULL;
 	return temp;
@@ -37,6 +41,7 @@ void dfs(Node *node, string huff_code) {
 /* Traverse binary search tree in level order and send to file.
 This fuction takes argument root value of the list and the output file stream. */
 void LevelOrder(Node *root, ofstream &of) {
+	list<Node*> temp_list;
 	if (root == NULL)
 		return;
 	// queue to get values from the list and traverse in Inorder.
@@ -48,7 +53,8 @@ void LevelOrder(Node *root, ofstream &of) {
 		Q.pop(); // removing the element at front
 		// Check current node for null values
 		if (current->ch != "")
-			of << current->ch << " " << current->huffman << endl;
+			temp_list.push_back(current);
+			// of << current->ch << " " << current->huffman << endl;
 		// Check left nodes for null values
 		if (current->left != NULL)
 			Q.push(current->left);
@@ -56,4 +62,8 @@ void LevelOrder(Node *root, ofstream &of) {
 		if (current->right != NULL)
 			Q.push(current->right);
 	}
+	temp_list.sort(comp_ascii());
+
+	for (list<Node*>::iterator current = temp_list.begin(); current != temp_list.end(); current++)
+		of << (*current)->ch << " " << (*current)->huffman << "\n";
 }
