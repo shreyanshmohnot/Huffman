@@ -10,3 +10,17 @@ Part 2:
 - Shreyansh:  corrected sort by ASCII
 - Shreyansh:  expanded comments, header file, and sent file to next team
 
+Parts 3/4:
+- Shreyansh:  C++ develpoment for both parts.  All working code with one exception for type mismatch
+- Sam:  debugging - edited a type mismatch byte/int in decode function
+- Sam:  added some comments to Part 4
+- Sam:  testing: compared clear.txt and decoded.txt using a Windows utility.  Identical files
+- Sam:  analysis
+
+Analysis:
+clear.txt has 1,257 bytes
+coded.txt has 5,573 bytes
+
+Standard ASCII character encoding uses 1 byte or 8 bits of storage regardless of commonality.  ASCII's codes are of fixed length.  In other words, common characters like 'e' have the same number of characters as less frequently used characters.   
+
+In contrast, Huffman encoding takes advantage of the disparity in frequency count by using less storage for more frequently used characters.  For example, our encoding uses just 3 bits for 'e' and whitespace, compared to 8 bits in ASCII.  
