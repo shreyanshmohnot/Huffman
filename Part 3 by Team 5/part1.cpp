@@ -17,12 +17,12 @@ int amain() {
 
 			//convert 2 non-ASCII apostrophes in clear.txt to ASCII
 			//"don't" and "Country's"
-			if (intc == 146) {
-				frequencies[static_cast<int>('\'')]++;
-			}
-			else {
+			// if (intc == 146) {
+			//	frequencies[static_cast<int>('\'')]++;
+			//}
+			//else {
 				frequencies[intc]++;
-			}
+			//}
 		}
 	}
 

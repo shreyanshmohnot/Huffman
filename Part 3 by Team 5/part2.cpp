@@ -33,23 +33,26 @@ struct comp {
 };
 
 bool alphaComp(pair<char, string> a, pair<char, string> b) {
-	return ((int) a.first < (int) b.first);
+	return ((int)a.first < (int)b.first);
 }
 
+/* Printing to file changed and removed ':' from the print values. */
 void prettyPrint(list<pair<char, string>>& myList, ofstream& output) {
 	while (myList.size() > 0) {
 		pair<char, string> next = myList.front();
-		if (next.first == '*')
-			output << "LF: " << next.second << "\n";
+		// if (next.first == '*')
+		/* Error 1 - Replace * with \n */
+		if (next.first == '\n')
+			output << "LF " << next.second << "\n";
 		else
-			output << next.first << ": " << next.second << "\n";
+			output << next.first << " " << next.second << "\n";
 		myList.pop_front();
 	}
 }
 
 void createCodes(struct Node* tree, string code) {
 	if (tree) {
-		if (tree->character != '@') 
+		if (tree->character != '@')
 			tree->code = code;
 		createCodes(tree->left, code + "0");
 		createCodes(tree->right, code + "1");
@@ -95,7 +98,9 @@ void readFile(int frequency[], char character[])
 			char next = '*';
 			myfile >> next;
 			if (next == 'F') {
-				character[count] = '*';
+				// character[count] = '*';
+				/* Error 1 - Replace * with \n */
+				character[count] = '\n';
 			}
 		}
 		int freq = 0;
@@ -116,15 +121,15 @@ void readFile(int frequency[], char character[])
 	myfile.close();
 }
 
-int main() {
+int abmain() {
 	int frequency[50];
 	char character[50];
-	
+
 	readFile(frequency, character);
 
 	priority_queue<Node*, vector<Node*>, comp> tree;
 	int i = 0;
-	while(frequency[i] >= 0) {
+	while (frequency[i] >= 0) {
 		tree.push(new Node(character[i], frequency[i]));
 		i++;
 	}
