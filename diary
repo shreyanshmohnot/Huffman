@@ -14,6 +14,7 @@ Part 2:
 
 Parts 3/4:
 - Shreyansh:  C++ develpoment for both parts.  All working code with one exception for type mismatch
+- Shreyansh:  corrected sort issue in other team's code
 - Sam:  debugging - edited a type mismatch byte/int in decode function
 - Sam:  added some comments to Part 4
 - Sam:  testing: compared clear.txt and decoded.txt using a Windows utility.  Identical files
