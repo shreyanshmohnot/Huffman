@@ -9,7 +9,7 @@ Mr Mohnot & Mr Thomas
 #include <list>
 #include <sstream>
 
-/* Node structure stores characters, frequency, Huffman code.  
+/* Node structure stores characters, frequency, Huffman code.
 Includes pointers for the creation of a binary tree */
 struct Node
 {
@@ -147,42 +147,24 @@ int main() {
 	{
 		if (line[0] == ' ') {
 			string temp = to_string(stoi(line));
-			codes.insert(pair <string, string> (" ", temp));
+			codes.insert(pair <string, string>(" ", temp));
 		}
 		else {
 			vector<string> sep = split(line, ' ');
-			codes.insert(pair <string, string> (sep[0], sep[1]));
+			codes.insert(pair <string, string>(sep[0], sep[1]));
 		}
 	}
+	file.close();
+	
+	// open coded.txt file for input to decode
+	file.open("coded.txt", fstream::in);
+	string encode;
+	getline(file, encode);
 	file.close();
 
-	// open clear.txt input file for converting to code
-	file.open("clear.txt", fstream::in);
-	
-	// output codes to file
-	ofstream out_file;
-	out_file.open("coded.txt", ofstream::trunc);
-	
-	char singleCharacter;
-	string encode;
-	while (file.get(singleCharacter)) {
-		string s(1, singleCharacter);
-		if (singleCharacter == '\n')
-			itr = codes.find("LF");
-		else 
-			itr = codes.find(s);
-		if (itr != codes.end()) {
-			out_file << itr->second;
-			encode.append(itr->second);
-		}
-		else
-			cout << singleCharacter << " NOT FOUND" << endl; // error detection
-	}
-	file.close();
-	out_file.close();
-	out_file.open("decoded.txt", ofstream::trunc);
+	// output to decoded.txt file for getting the encoded text back into decoded text
+	ofstream out_file("decoded.txt", ofstream::trunc);
 	out_file << decode(tree.top(), encode);
 	out_file.close();
-	// system("pause");
 	return 0;
 }
