@@ -30,28 +30,28 @@ int main() {
 	{
 		if (line[0] == ' ') {
 			string temp = to_string(stoi(line));
-			codes.insert(pair <string, string> (" ", temp));
+			codes.insert(pair <string, string>(" ", temp));
 		}
 		else {
 			vector<string> sep = split(line, ' ');
-			codes.insert(pair <string, string> (sep[0], sep[1]));
+			codes.insert(pair <string, string>(sep[0], sep[1]));
 		}
 	}
 	file.close();
 
 	// open clear.txt input file for converting to code
 	file.open("clear.txt", fstream::in);
-	
+
 	// output codes to file
 	ofstream myOutput;
 	myOutput.open("coded.txt", ofstream::trunc);
-	
+
 	char singleCharacter;
 	while (file.get(singleCharacter)) {
 		string s(1, singleCharacter);
 		if (singleCharacter == '\n')
 			itr = codes.find("LF");
-		else 
+		else
 			itr = codes.find(s);
 		if (itr != codes.end())
 			myOutput << itr->second;
@@ -60,6 +60,5 @@ int main() {
 	}
 	file.close();
 	myOutput.close();
-	// system("pause");
 	return 0;
 }
