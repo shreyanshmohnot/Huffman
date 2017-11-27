@@ -20,6 +20,11 @@ Parts 3/4:
 - Sam:  testing: compared clear.txt and decoded.txt using a Windows utility.  Identical files
 - Sam:  analysis
 
+Parts 3a/4a:
+- Sam:  initial C++ development
+- Sam:  team evaluation
+- Shreyansh:  analysis
+
 Analysis:
 clear.txt has 1,257 bytes
 coded.txt has 5,573 bytes
@@ -27,3 +32,10 @@ coded.txt has 5,573 bytes
 Standard ASCII character encoding uses 1 byte or 8 bits of storage regardless of commonality.  ASCII's codes are of fixed length.  In other words, common characters like 'e' have the same number of characters as less frequently used characters.   
 
 In contrast, Huffman encoding takes advantage of the disparity in frequency count by using less storage for more frequently used characters.  For example, our encoding uses just 3 bits for 'e' and whitespace, compared to 8 bits in ASCII.  
+
+Analysis after bit allocation:
+clear.txt has 1,257 bytes
+codedalt.txt has 697 bytes
+
+With bit level assignment of huffman codes the clear.txt file size is reduced significantly to 697 bytes. This shows how much extra characters were eating up the space on the file. However not every file could be dealt at bit level because decoding them adds garbage values which may produce unexpected results.
+Thus huffman compression alogrithm efficently compresses file at bit level.
