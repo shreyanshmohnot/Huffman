@@ -12,7 +12,7 @@ void readFile2(string filename, string& output) {
 
 void writeFile2(string filename, string output) {
 	ofstream myfile(filename, ofstream::trunc);
-	for (int i = 0; i < output.length(); i++) {
+	for (int i = 0; i < (int)output.length(); i++) {
 		myfile << output[i];
 	}
 	myfile.close();
@@ -22,7 +22,7 @@ void buildDictionary(string input, map<string, char>& dictionary) {
 	char currentChar = '+';
 	string currentString = "";
 	bool readingChar = true;
-	for (int i = 0; i < input.length(); i++) {
+	for (int i = 0; i < (int)input.length(); i++) {
 		if (!readingChar && input[i] == '\n') {
 			readingChar = true;
 			dictionary[currentString] = currentChar;
@@ -32,7 +32,7 @@ void buildDictionary(string input, map<string, char>& dictionary) {
 			readingChar = false;
 		}
 		else if (readingChar) {
-			if (input[i] == 'L' && (i + 1) < input.length() &&	input[i + 1] == 'F') {
+			if (input[i] == 'L' && (i + 1) < (int)input.length() &&	input[i + 1] == 'F') {
 				currentChar = '\n';
 				i++;
 			}
@@ -47,7 +47,7 @@ void buildDictionary(string input, map<string, char>& dictionary) {
 
 void decodeMessage(string input, string& output, map<string, char> dictionary) {
 	string currentString = "";
-	for (int i = 0; i < input.length(); i++) {
+	for (int i = 0; i < (int)input.length(); i++) {
 		currentString += input[i];
 		if (dictionary.find(currentString) != dictionary.end()) {
 			output += dictionary[currentString];
