@@ -23,7 +23,9 @@ Parts 3/4:
 Parts 3a/4a:
 - Sam:  initial C++ development
 - Sam:  team evaluation
-- Shreyansh:  analysis
+- Shreyansh: testing whole huffman program with a another clear.txt junk file.
+- Shreyansh: debugged a bit assignment in get_bits() and while loop.
+- Shreyansh:  expanded comments and wrote analysis
 
 Analysis:
 clear.txt has 1,257 bytes
@@ -37,5 +39,4 @@ Analysis after bit allocation:
 clear.txt has 1,257 bytes
 codedalt.txt has 697 bytes
 
-With bit level assignment of huffman codes the clear.txt file size is reduced significantly to 697 bytes. This shows how much extra characters were eating up the space on the file. However not every file could be dealt at bit level because decoding them adds garbage values which may produce unexpected results.
-Thus huffman compression alogrithm efficently compresses file at bit level.
+With bit level assignment of huffman codes the clear.txt file size is reduced significantly to 697 bytes. This shows how much extra characters were eating up the space on the file. However not every file could be dealt at bit level because decoding them adds garbage values which may produce unexpected results. Thus huffman compression alogrithm is able to compresses file at bit level efficently.
